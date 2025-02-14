@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <script src="JS/crudUI.js"></script>
+    <script src="JS/crud.js"></script>
+    <script src="JS/ajax.js"></script>
+</head>
+
+<body>
+    <div id="notificacion" class="toast"></div>
+
+    <div style="text-align: center;">
+        <button class="abrir-modal" id="abrirModal">Nueva Consulta</button>
+    </div>
+
+    <div id="ventanaModal" class="modal">
+        <div class="modal-contenido">
+            <span class="close" id="cerrarModal">&times;</span>
+            <form method="get" action="PHP/servicios.php" class="crud-formulario">
+                <fieldset>
+                    <legend>CRUD PHP</legend>
+
+                    <div class="formulario-grupo">
+                        <label for="id">ID</label>
+                        <input type="text" id="id" placeholder="ID">
+                    </div>
+
+                    <div class="formulario-grupo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" placeholder="Tu Nombre">
+                    </div>
+
+                    <div class="formulario-grupo">
+                        <label for="apellido1">Primer apellido</label>
+                        <input type="text" id="apellido1" placeholder="Tu primer apellido">
+                    </div>
+
+                    <div class="formulario-grupo">
+                        <label for="apellido2">Segundo apellido</label>
+                        <input type="text" id="apellido2" placeholder="Tu segundo apellido (Opcional)">
+                    </div>
+
+                    <div class="formulario-grupo">
+                        <label for="login">Login</label>
+                        <input type="text" id="login" placeholder="Autentificación">
+                    </div>
+
+                    <div class="formulario-grupo">
+                        <label for="contrasena">Contraseña</label>
+                        <input type="password" id="contrasena" placeholder="Contraseña">
+                    </div>
+
+                    <div class="formulario-acciones">
+                        <input type="submit" id="consultarID" value="Consultar ID">
+                        <input type="reset" id="limpiar" value="Limpiar">
+                    </div>
+                    <div class="formulario-acciones">
+                        <input type="submit" id="guardar" value="Guardar">
+                        <input type="submit" id="editar" value="Editar">
+                        <input type="submit" id="eliminar" value="Eliminar">
+                    </div>
+                </fieldset>
+                <input type="hidden" id="datos" name="datos">
+            </form>
+        </div>
+    </div>
+
+    <fieldset class="contenido-datos">
+        <legend>Datos almacenados</legend>
+
+        <br />
+
+        <form method="get" action="PHP/servicios.php">
+            <input type="submit" id="actualizar" value="Actualizar">
+        </form>
+
+        <br>
+
+        <table id="tablaUsuarios">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Login</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaContenido">
+
+            </tbody>
+        </table>
+
+        <div id="paginaActual">Página 1</div>
+
+        <br />
+
+        <form method="get">
+            <input type="submit" id="paginaAnterior" value="Anterior">
+            <input type="submit" id="paginaSiguiente" value="Siguiente">
+        </form>
+
+    </fieldset>
+
+</body>
+
+</html>
